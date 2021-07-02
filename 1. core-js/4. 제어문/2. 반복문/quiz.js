@@ -20,3 +20,29 @@
 4 x 9 = 36
 */
 
+var i = Math.floor(Math.random() * (8)) + 1;
+var n = 0;
+
+console.log(`====================`);
+console.log(`랜덤 구구단 ${i}단`);
+console.log(`====================`);
+while (n < 9) {
+        n++;
+        console.log(`${i} X ${n} = ${n*i} `);
+}
+n=1;
+console.log(` `);
+console.log(` `);
+console.log(`==========(for)=========`);
+// for 구문
+console.log(` `);
+console.log(` `);
+console.log(`====================`);
+console.log(`  랜덤 구구단 ${i}단`);
+console.log(`====================`);
+
+for( var n_for=1; n_for <= 9 ; n_for++) {
+    // n++;
+    console.log(`${i} X ${n_for} = ${i*n_for} `);
+}
+n_for=1;
