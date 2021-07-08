@@ -1,13 +1,11 @@
-/*
-    Q. n개의 정수를 전달하면 해당 정수들의 총합과 평균을 
-       반환하는 함수 calcNumbersTotalAndAverage를 작성하세요.
-*/
+
 
 
 function calcNumbersTotalAndAverage(...numbers) {
     var total = 0;
     for (var n of numbers) {
         total += n;
+        console.log(total);
     }
     var avg = total / numbers.length; // length = 객체의 숫자(4)
     return {

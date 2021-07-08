@@ -20,4 +20,3 @@ for (var num of numbers) {
     total += num;
 }
 alert(`입력한 숫자 총합: ${total}`);
-

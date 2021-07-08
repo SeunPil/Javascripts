@@ -8,7 +8,7 @@
 var scores = [98, 32, 66, 87, 49, 12, 100, 82]
 var total = 0;
 for ( var num of scores ) {
-    total += num;
+    console.log(num);
 }
 
 var total2 = total / scores.length;
