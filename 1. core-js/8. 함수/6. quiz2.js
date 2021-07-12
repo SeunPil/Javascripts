@@ -9,19 +9,15 @@ Q. n의 약수의 개수를 구하기
 
 
 function calcDivisor(Num) {
-  var counter = 0;
-
-  for ( i = 0; i <= Num ; i++ ) {
+  var Array = [];
+  for ( i = 1; i <= Num ; i++ ) {
     if ( Num % i === 0 ) {
-      counter += 1;
+      Array.push(i);
     }
   }
-  return {
-       counter
-  }
+  console.log(`${Num}의 약수: [${Array}]`);
+  return Array.length
 }
 
-var result = calcDivisor(150)
-console.log(`약수의 개수: ${result.counter}`)
-
-
+var result = calcDivisor(24)
+console.log(`약수의 개수: ${result}개`);

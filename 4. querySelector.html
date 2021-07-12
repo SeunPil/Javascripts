@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<ul id='fruits'>
+    <li class='fruit apple'>사과</li>
+    <li class='fruit banana'>바나나</li>
+    <li class='fruit grape'>포도</li>
+    <li class='fruit pineapple'>파인애플</li>
+</ul>
+
+
+<script>
+
+    // 선택자는 무엇을 사용해도 상관 X
+
+    // const $banana = document.querySelector('.banana');
+    // const $banana = document.querySelector('#fruits > li:nth-child(2)');
+    const $banana = document.querySelector('li.apple + li');
+    console.log($banana);
+
+    $banana.style.color = 'yellow';
+
+
+    // All을 사용 안할 때 #fruits > li중 제일 먼저 발견한 한 개만 가져온다.
+    // All을 사용하면 모두 가져옴.
+    const $elements = document.querySelectorAll('#fruits > li');
+    console.log($elements);
+
+    //선택자로 선택된 요소가 없으면 null반환
+    const test = document.querySelector('#peach');
+    console.log(`test: ${test}`);
+
+    //css선택자 문법이 틀리면 에러 발생
+    const test2 = document.querySelector('&mango');
+
+</script>
+
+
+
+
+
+
+</body>
+
+
+
+</html>
