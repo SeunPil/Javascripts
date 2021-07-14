@@ -49,7 +49,8 @@
         $wrap.style.fontSize = '20px'
 
         //2. h1요소의 폰트 색상을 red로 지정하세요.
-        document.querySelector('h1').style.color = 'red';
+        const $h1 = document.querySelector('h1');
+        $h1.style.color = 'red';
 
         //3. id가 firstTitle인 요소의 폰트 색상을 green으로 지정하세요.
         const $green = document.getElementById('firstTitle');
@@ -60,15 +61,17 @@
         $blue.style.color = 'blue';
 
         //5. 클래스 obj3의 자식요소 li요소 모두의 font-weight를 bold로 지정하세요.    
-        const $bold = document.querySelector('.obj3');
-        console.log($bold);
-        $bold.style.fontWeight = 'bold';
+        const $obj3 = document.querySelector('.obj3');
+        const $obj3li = [...$obj3.children];
+        for (let $li of $obj3li ) {
+            $li.style.fontWeight = 'bold';
+        };
         
 
         //6. 클래스 obj3의 요소 노드를 취득한 후 해당 요소 노드를 통해 
         //   클래스 theObj1을 취득한 뒤 폰트색상을 red로 지정하세요.
 
-        const $theObj1 = document.querySelector('.theObj1');
+        const $theObj1 = $obj3.querySelector('.theObj1');
         $theObj1.style.color = 'red';
 
         
@@ -85,11 +88,11 @@
         const $obj4 = document.querySelector('.obj4');
         const next = $obj4.nextElementSibling;
         next.style.color = 'orange';
+
         //9. 클래스 obj5의 요소 노드를 취득한 뒤 이전 형제 노드에
         //   접근하여 text-align을 right로 지정하세요. 
-        const two = $obj5.previousElementSibling;
-        console.log(two);
-        two.style.textAlign = 'right';
+        const $previous = $obj5.previousElementSibling;
+        $previous.style.textAlign = 'right';
     </script>
 </body>
 </html>
