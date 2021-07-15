@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .box {
+        width: 100px;
+        height: 100px;
+        background: lightgray;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .red {
+        color: red;
+    }
+    .blue {
+        color: blue;
+    }
+    .circle {
+        border-radius: 50%;
+    }
+</style>
+<body>
+    
+<div class="box blue">안녕</div>
+
+<button id="change">변경!</button>
+
+<script>
+
+    const $box = document.querySelector('.box');
+    // $box.className = 'box blue';
+    console.log($box.classList);
+    console.log($box.classList[0]);
+
+    //요소에 클래스 추가
+    $box.classList.add('circle');
+    $box.classList.add('abc', 'def', 'ghi');
+
+    //요소에 클래스 제거
+    $box.classList.remove('red');
+    $box.classList.remove('abc', 'ghi');
+
+    //요소에 클래스 유무 확인 ( 논리값 )
+    console.log($box.classList.contains('red'));
+
+    $box.classList.add('blue');
+
+    //요소에 특정 클래스를 교체 (변경) ( 교체대상, 바꿀 것)
+    $box.classList.replace('blue', 'red');
+
+    //toggle: 요소에 해당 클래스가 있으면 삭제, 
+    // 없으면 추가
+    $box.classList.toggle('circle'); // 있었으니 삭제
+    $box.classList.toggle('circle'); // 삭제 후 생성
+
+    const $btn = document.getElementById('change');
+    $btn.onclick = e => {
+        // if ($box.classList.contains('circle')) {
+        //     $box.classList.remove('circle');
+        // } else {
+        //     $box.classList.add('circle');
+        // }
+        $box.classList.toggle('circle');
+    };
+
+
+</script>
+
+</body>
+</html>
