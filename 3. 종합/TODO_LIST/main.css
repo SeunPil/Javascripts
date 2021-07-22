@@ -125,3 +125,12 @@ section.todo-template .content .todo-list .todo-list-item .remove {
 
 
 }
+
+#mod-input {
+    width: auto;
+    margin-left: 50px;
+    font-size: 12px;
+    border: 1px solid gray;
+    border-radius: 3px;
+    /* background: red; */
+}
