@@ -126,7 +126,7 @@ section.todo-template .content .todo-list .todo-list-item .remove {
 
 }
 
-#mod-input {
+.modify-input {
     width: auto;
     margin-left: 50px;
     font-size: 12px;

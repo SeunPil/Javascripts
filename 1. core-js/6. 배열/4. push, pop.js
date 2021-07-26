@@ -1,3 +1,8 @@
+                                const random = adsadsad
+
+
+
+
 
 
 var foods = ['닭강정', '볶음밥', '피자']

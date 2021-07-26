@@ -1,7 +1,7 @@
 //게임에 필요한 데이터 객체
 const gameDatas = {
-    secret: Math.floor(Math.random() * 100) + 1,
-    min: 1,
+    secret: Math.floor(Math.random() * 100) + 1, //카드번호
+    min: 1, 
     max: 100
 };
 

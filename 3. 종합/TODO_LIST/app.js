@@ -139,18 +139,44 @@ function removeToDoData($delTarget) {
     todos.splice(delIdx, 1);
 }
 
-function modifyToDoData($modifyTarget) {
-    /*
-        수정 버튼을 눌렀을 때 span이 인풋으로 변경됨. span값이 value로
-    */
-    const $label = $modifyTarget.children[0];
-    console.log($label);
-    const $span = $label.lastElementChild;
-    const $changelabel = document.createElement('input');
-    $changelabel.setAttribute('id', 'mod-input');
-    $changelabel.setAttribute('value', $label.textContent.trim());
-    $label.replaceChild($changelabel, $span);
+//할 일 수정모드 진입 이벤트 처리 함수
+function enterModifyMode($modSpan) {
+
+    //버튼 모양을 교체 (클래스 교체)
+    $modSpan.classList.replace('lnr-undo', 'lnr-checkmark-circle');
+
+    //텍스트 span을 input:text로 교체
+    const $label = $modSpan.parentNode.previousElementSibling;
+    // console.log($label);
+    const $textSpan = $label.lastElementChild;
+    // console.log($textSpan);
+
+    const $modInput = document.createElement('input');
+    $modInput.setAttribute('type', 'text');
+    $modInput.setAttribute('value', $textSpan.textContent);
+    $modInput.classList.add('modify-input');
+
+    $label.replaceChild($modInput, $textSpan);
 }
+
+//할 일 수정 완료 이벤트 처리 함수
+function modifyToDoData($checkSpan) {
+
+    //버튼 모양을 원래대로 되돌림
+    $checkSpan.classList.replace('lnr-checkmark-circle', 'lnr-undo');
+
+    //input:text를 span.text로 교체
+    const $label = $checkSpan.parentNode.previousElementSibling;
+    const $modInput = $label.lastElementChild;
+
+    const $newSpan = document.createElement('span');
+    $newSpan.classList.add('text');
+    $newSpan.textContent = $modInput.value;
+
+    $label.replaceChild($newSpan, $modInput); 
+}
+
+
 
 
 
@@ -185,11 +211,23 @@ function modifyToDoData($modifyTarget) {
         removeToDoData(e.target.parentNode.parentNode);
     });
 
-    // 수정 이벤트
+    //할 일 수정 이벤트(수정모드진입, 수정완료)
     $todoList.addEventListener('click', e => {
-        if (!e.target.matches('.modify span')) return;
-        modifyToDoData(e.target.parentNode.parentNode);
-    })
+
+        //이벤트 발생 요소가 수정모드진입버튼이라면~
+        if (e.target.matches('.modify span.lnr-undo')) {
+            // console.log(e.target);
+            enterModifyMode(e.target);
+        }
+        //이벤트 발생 요소가 수정확인 버튼이라면~
+        else if (e.target.matches('.modify span.lnr-checkmark-circle')) {
+            modifyToDoData(e.target);
+        } else {
+            return;
+        }
+
+});
+
 
 
 
