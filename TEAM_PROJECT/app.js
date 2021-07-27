@@ -33,7 +33,7 @@ function makeCard() {
     const $frag = document.createDocumentFragment();
 
     for (let i = 1; i <= 12; i++) {
-        
+        // div 생성
         const card = document.createElement("div");
         const cardinner = document.createElement("div");
         const cardfront = document.createElement("div");
