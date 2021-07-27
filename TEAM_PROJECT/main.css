@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body {
   background: rgb(218, 215, 215);
 }
@@ -66,3 +67,49 @@ h1 {
  .card-back {
      transform: rotateY(180deg);
  }
+=======
+.container {
+ margin-top: 50px;
+ display: grid;
+ grid-template-columns: auto auto auto auto auto auto;
+ gap: 10px;   
+}
+
+.card {
+    width: 100px;
+    height: 150px;
+    margin: 0 auto;
+    /* 원근감 CSS 애니메이션 (카드 뒤집을 때 사용) */
+    perspective: 140px;
+    cursor: pointer;
+}
+
+/* 보여지는 카드 안 쪽 div */
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style:preserve-3d;
+}
+
+/* 넘어가는 모션 */ 
+.card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 1px solid black;
+    box-sizing: border-box;
+    backface-visibility: hidden;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+}
+>>>>>>> ca508a1c1c21868386f04c66d3f1cadf548a2034

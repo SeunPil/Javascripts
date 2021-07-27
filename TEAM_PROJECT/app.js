@@ -170,12 +170,19 @@ const setting = (hori, verti) => {
               // 카드들 싹다 비우고
               container.innerHTML = "";
 
+<<<<<<< HEAD
               // 성공카드 배열 비우고
               successCards = [];
+=======
+function makeCard() {
+    // Live DOM 생성
+    const $numbers = document.querySelector('.container');
+>>>>>>> ca508a1c1c21868386f04c66d3f1cadf548a2034
 
               // 색깔 비우고
               color = [];
 
+<<<<<<< HEAD
               // 랜덤으로 카드색 돌릴꺼 다시 만들고
               colorSelect = colorArray.slice();
 
@@ -188,6 +195,29 @@ const setting = (hori, verti) => {
               // 세팅도 다시한다.
               setting(horizontal, vertical);
             }
+=======
+    for (let i = 1; i <= 12; i++) {
+        // div 생성
+        const card = document.createElement("div");
+        const cardinner = document.createElement("div");
+        const cardfront = document.createElement("div");
+        const cardback = document.createElement("div");
+
+        cardinner.classList.add('card-inner');
+        cardfront.classList.add('card-front');
+        cardback.classList.add('card-back');
+        card.classList.add('card');
+
+        // 만들어진 카드들을 가상 돔에 입력
+        card.appendChild(cardinner);
+        cardinner.appendChild(cardfront);
+        cardinner.appendChild(cardback);
+        $frag.appendChild(card);
+
+        //카드 색 적용
+        card.style.backgroundColor = 'navy';
+        cardback.style.backgroundColor = 'black';
+>>>>>>> ca508a1c1c21868386f04c66d3f1cadf548a2034
 
             // 두 카드의 색이 다르다면
           } else {
