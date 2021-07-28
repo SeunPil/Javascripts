@@ -93,6 +93,7 @@ const setting = (hori, verti) => {
     cardInner.classList.add("card-inner");
     cardFront.classList.add("card-front");
     cardBack.classList.add("card-back");
+    cardBack.setAttribute('id', i);
 
     // 문서객체를 추가하기
     container.appendChild(card);
@@ -128,7 +129,7 @@ const setting = (hori, verti) => {
   // forEach는 배열에서 사용 가능한 반복문이다.
   // 주어진 함수를 각각의 배열에서 반복된다.
 
-  Cards.forEach((aCard, index) => {
+  const A = Cards.forEach((aCard, index) => {
     // setTimeout 함수를 사용
     // aCard에 flipped class를 부여해라.
     // 1000 + 100 * 카드의 수 (총 20장)
@@ -137,6 +138,7 @@ const setting = (hori, verti) => {
       aCard.classList.add("flipped");
     }, 1000 + 100 * index);
   });
+
 
   // 5초 후에 카드를 뒤집기
 
@@ -155,7 +157,7 @@ const setting = (hori, verti) => {
       ## setTimeout은 지정한 시간이 지난 뒤, 작성한 구문을 실행한다.
       ## (aCard.classList.remove)
       setTimeout으로 인해 5초뒤 aCard.classList.remove를 실행한다. */
-  Cards.forEach((aCard) => {
+  const B = Cards.forEach((aCard) => {
     setTimeout(() => {
       aCard.classList.remove("flipped");
     }, 5000);
@@ -164,13 +166,17 @@ const setting = (hori, verti) => {
   // 카드가 다 뒤집어지고 난 다음 true로 바꿔서 클릭이 되게 변경
   setTimeout(() => {
     clickFlag = true;
-
     // 게임 시작!
     gameStart = new Date();
   }, 5500);
 
+  /*for (let card of Cards) {
+    card.addEventListener("click", () => {});
+  }*/
+
   Cards.forEach((card) => {
-    card.addEventListener("click", () => {
+    card.addEventListener("click", e => {
+
 
       //includes() : 배열 요소의 존재 유무 확인
       // toggle: 요소에 해당 클래스가 있으면 삭제, 없으면 추가
@@ -189,7 +195,7 @@ const setting = (hori, verti) => {
 
         // 내가 클릭한 카드를 cardArray에 푸쉬한다.
         cardArray.push(card);
-
+        
         // cardArray에 들어간 카드가 2장일 때
         // 처음 뒤집은 카드는 cardA, 두번째는 cardB ( 맨 위에 작성한 카드 한 개의 div가 넣어진다.)
         // 그러므로 querySelector로 .card-back(뒤집었을 때 나타나는 카드)를 선택 후 색상을 각각 입력한다. 
@@ -198,6 +204,7 @@ const setting = (hori, verti) => {
             cardArray[0].querySelector(".card-back").style.backgroundColor;
           let cardB =
             cardArray[1].querySelector(".card-back").style.backgroundColor;
+
 
           // 두 카드의 색이 같다면
           if (cardA == cardB) {
